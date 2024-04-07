@@ -241,8 +241,9 @@ void AccountListPage::on_actionUploadSkin_triggered()
 void AccountListPage::on_actionDeleteSkin_triggered()
 {
     QModelIndexList selection = ui->listView->selectionModel()->selectedIndexes();
-    if (selection.size() <= 0)
+    if (selection.size() <= 0) {
         return;
+    }
 
     QModelIndex selected = selection.first();
     MinecraftAccountPtr account = selected.data(AccountList::PointerRole).value<MinecraftAccountPtr>();
